@@ -47,16 +47,16 @@ jobs:
 
     - name: Check File Permissions
       run: |
-        ls -l ./Lab_2/src/model_train.py
+        ls -l ./Lab_2/src/train_model.py
 
     - name: Set File Permissions
       run: |
-        chmod +x ./Lab_2/src/model_train.py
+        chmod +x ./Lab_2/src/train_model.py
 
     - name: Retrain Model
       run: |
         timestamp=$(cat timestamp.txt)
-        python ./Lab_2/src/model_train.py --timestamp "$timestamp"
+        python ./Lab_2/src/train_model.py --timestamp "$timestamp"
 
     - name: Evaluate Model and Log Metrics
       run: |
