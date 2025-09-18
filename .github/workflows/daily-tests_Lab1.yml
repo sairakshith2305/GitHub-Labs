@@ -1,0 +1,43 @@
+name: Testing with Pytest
+run-name: Pytest
+on:
+  schedule:
+    - cron: '0 16 * * *' # Runs at 12:00 Noon UTC daily
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8, 3.10, 3.11]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: pip install -r Lab_1/requirements.txt
+
+      - name: Run tests and generate XML report
+        run: pytest Lab_1/test --junitxml=pytest-report.xml
+        continue-on-error: false
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: pytest-report.xml
+
+      - name: Notify on success
+        if: success()
+        run: echo "Tests passed successfully"
+
+      - name: Notify on failure
+        if: failure()
+        run: echo "Tests failed"
