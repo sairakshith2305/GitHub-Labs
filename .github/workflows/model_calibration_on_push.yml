@@ -3,11 +3,12 @@ name: Model Retraining on Push to Main
 on:
   push:
     branches:
-      - main  # Trigger the workflow on pushes to the main branch
+      - main  
+
 permissions:
   contents: write
   pull-requests: write
-  
+
 jobs:
   retrain:
     runs-on: ubuntu-latest
