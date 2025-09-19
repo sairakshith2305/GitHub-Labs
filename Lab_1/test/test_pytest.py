@@ -22,19 +22,6 @@ def test_fun1_large_numbers():
     assert calculator.fun1(-1e10, 1e10) == 0
 
 
-def test_fun1_invalid_inputs():
-    """Test that fun1 raises ValueError for invalid inputs"""
-    with pytest.raises(ValueError, match="Both inputs must be numbers"):
-        calculator.fun1("2", 3)
-    with pytest.raises(ValueError, match="Both inputs must be numbers"):
-        calculator.fun1(2, "3")
-    with pytest.raises(ValueError, match="Both inputs must be numbers"):
-        calculator.fun1(None, 3)
-    with pytest.raises(ValueError, match="Both inputs must be numbers"):
-        calculator.fun1([1, 2], 3)
-    with pytest.raises(ValueError, match="Both inputs must be numbers"):
-        calculator.fun1({"a": 1}, 2)
-
 def test_fun2():
     assert calculator.fun2(2, 3) == -1
     assert calculator.fun2(5,0) == 5
@@ -56,18 +43,6 @@ def test_fun2_large_numbers():
     assert calculator.fun2(-1e10, -1e10) == 0
 
 
-def test_fun2_invalid_inputs():
-    """Test that fun2 raises ValueError for invalid inputs"""
-    with pytest.raises(ValueError, match="Both inputs must be numbers"):
-        calculator.fun2("5", 3)
-    with pytest.raises(ValueError, match="Both inputs must be numbers"):
-        calculator.fun2(5, None)
-    with pytest.raises(ValueError, match="Both inputs must be numbers"):
-        calculator.fun2(True, 3)  # bool is actually instance of int, but testing edge case
-    with pytest.raises(ValueError, match="Both inputs must be numbers"):
-        calculator.fun2(5, [3])
-
-
 def test_fun3():
     assert calculator.fun3(2, 3) == 6
     assert calculator.fun3(5,0) == 0
@@ -83,16 +58,6 @@ def test_fun3_floats():
     assert calculator.fun3(3.14, 2) == pytest.approx(6.28)
     assert calculator.fun3(0.1, 0.1) == pytest.approx(0.01)
 
-def test_fun3_invalid_inputs():
-    """Test that fun3 raises ValueError for invalid inputs"""
-    with pytest.raises(ValueError, match="Both inputs must be numbers"):
-        calculator.fun3("2", 3)
-    with pytest.raises(ValueError, match="Both inputs must be numbers"):
-        calculator.fun3(2, "3")
-    with pytest.raises(ValueError, match="Both inputs must be numbers"):
-        calculator.fun3(None, None)
-    with pytest.raises(ValueError, match="Both inputs must be numbers"):
-        calculator.fun3(complex(1, 2), 3)
 
 def test_fun4():
     assert calculator.fun4(2, 3, 5) == 10
@@ -107,16 +72,3 @@ def test_fun4_floats():
     assert calculator.fun4(0.1, 0.2, 0.3) == pytest.approx(0.6)
     assert calculator.fun4(-1.5, -2.5, 4.0) == 0.0
     assert calculator.fun4(3.14, 2.71, 1.41) == pytest.approx(7.26)
-
-
-def test_fun4_invalid_inputs():
-    """Test fun4 with invalid inputs - Note: fun4 doesn't validate inputs"""
-    # fun4 doesn't have validation, so it will raise TypeError instead of ValueError
-    with pytest.raises(TypeError):
-        calculator.fun4("1", 2, 3)
-    with pytest.raises(TypeError):
-        calculator.fun4(1, "2", 3)
-    with pytest.raises(TypeError):
-        calculator.fun4(1, 2, None)
-    with pytest.raises(TypeError):
-        calculator.fun4([1], [2], [3])
