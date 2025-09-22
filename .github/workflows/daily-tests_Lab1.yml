@@ -2,7 +2,7 @@ name: Testing with Pytest
 run-name: Pytest
 on:
   schedule:
-    - cron: '0 16 * * *' # Runs at 12:00 Noon UTC daily
+    - cron: '0 16 * * *' # Runs at 12:00 Noon EST daily
 
 jobs:
   build:
