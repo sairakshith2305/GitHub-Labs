@@ -37,10 +37,10 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calculator.fun4(-1, -1, 100), 98)
     
     def test_fun5(self):
-    self.assertEqual(calculator.fun5(10, 2), 5.0)
-    self.assertEqual(calculator.fun5(15, 3), 5.0)
-    self.assertEqual(calculator.fun5(-10, 2), -5.0)
-    self.assertEqual(calculator.fun5(-10, -2), 5.0)
+        self.assertEqual(calculator.fun5(10, 2), 5.0)
+        self.assertEqual(calculator.fun5(15, 3), 5.0)
+        self.assertEqual(calculator.fun5(-10, 2), -5.0)
+        self.assertEqual(calculator.fun5(-10, -2), 5.0)
 
 
 
