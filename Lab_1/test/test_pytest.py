@@ -72,3 +72,21 @@ def test_fun4_floats():
     assert calculator.fun4(0.1, 0.2, 0.3) == pytest.approx(0.6)
     assert calculator.fun4(-1.5, -2.5, 4.0) == 0.0
     assert calculator.fun4(3.14, 2.71, 1.41) == pytest.approx(7.26)
+
+def test_fun5_positive_numbers(self):
+    """Test division with positive numbers."""
+    self.assertEqual(fun5(10, 2), 5.0)
+    self.assertEqual(fun5(15, 3), 5.0)
+    self.assertAlmostEqual(fun5(7, 2), 3.5)
+
+def test_fun5_negative_numbers(self):
+    """Test division with negative numbers."""
+    self.assertEqual(fun5(-10, 2), -5.0)
+    self.assertEqual(fun5(10, -2), -5.0)
+    self.assertEqual(fun5(-10, -2), 5.0)
+
+def test_fun5_float_division(self):
+    """Test division with floating point numbers."""
+    self.assertAlmostEqual(fun5(5.5, 2.5), 2.2)
+    self.assertAlmostEqual(fun5(10.0, 3.0), 3.333333, places=5)
+    self.assertEqual(fun5(7.5, 2.5), 3.0)
